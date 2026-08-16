@@ -1,0 +1,10 @@
+{
+  "description": "This interactive web application enables operators to efficiently detect, track, and neutralize drone threats using a laser system, enhancing operational effectiveness and safety.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

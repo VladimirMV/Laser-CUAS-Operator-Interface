@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --bg: #0D1117;
+  --panel: #161B22;
+  --panel2: #1C2128;
+  --border: #30363D;
+  --text: #E6EDF3;
+  --dim: #8B949E;
+  --safe: #3FB950;
+  --armed: #D29922;
+  --danger: #F85149;
+  --reticle: #FFA657;
+  --accent: #58A6FF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.mono { font-family: 'Roboto Mono', monospace; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--panel); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+@keyframes blink-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes blink-amber {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes coast-pulse {
+  0%, 100% { border-color: #D29922; }
+  50% { border-color: rgba(210,153,34,0.3); }
+}
+
+.firing-border {
+  animation: blink-red 0.4s ease-in-out infinite;
+}
+
+.armed-glow {
+  animation: blink-amber 1s ease-in-out infinite;
+}
