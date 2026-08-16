@@ -1,5 +1,5 @@
 {
-  "name": "figma-make-app",
+  "name": "laser-cuas-operator-interface",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -10,18 +10,24 @@
     "format": "oxfmt"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.31.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.6.0",
+    "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^6.0.0",
-    "tailwindcss": "^4.0.0",
-    "@tailwindcss/vite": "^4.0.0",
     "oxfmt": "^0.2.0",
-    "typescript": "^5.7.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.9.3",
     "vite": "^8.0.0"
-  }
+  },
+  "description": "Laser C-UAS Operator Console HMI — modernized from Figma Make"
 }
