@@ -5,14 +5,14 @@ export type CameraChannel = 'LONG' | 'WIDE' | 'IR'
 export type AppScreen = 'COMBAT' | 'CALIBRATION' | 'BITE' | 'MAINTENANCE'
 export type SystemStatus = 'OK' | 'DEGRADED' | 'FAULT'
 export type CalibrationStatus = 'VALID' | 'CHECK_REQUIRED' | 'EXPIRED'
+export type Lang = 'en' | 'ua'
 
-/** Parallax model: Δu = a + c/R , Δv = d + e/R  (R in meters, result in mrad) */
 export interface ParallaxCoeffs {
-  a: number // fixed offset X [mrad]
-  c: number // parallax term X [mrad·m]
-  d: number // fixed offset Y [mrad]
-  e: number // parallax term Y [mrad·m]
-  r0: number // convergence distance [m]
+  a: number
+  c: number
+  d: number
+  e: number
+  r0: number
 }
 
 export interface TargetData {
@@ -25,7 +25,7 @@ export interface TargetData {
   trackQuality: number
   trackState: TrackState
   coastTimer: number
-  posX: number // % of video frame
+  posX: number
   posY: number
 }
 
@@ -37,22 +37,12 @@ export interface TelemetryExtras {
 
 export interface CalMeasurement {
   range: number
-  du: number // measured offset X [mrad]
-  dv: number // measured offset Y [mrad]
+  du: number
+  dv: number
 }
 
-export interface HmiState {
-  systemStatus: SystemStatus
-  laserStatus: LaserStatus
-  calibrationStatus: CalibrationStatus
-  mode: OperationMode
-  activeCamera: CameraChannel
-  zoom: number
-  screen: AppScreen
-  target: TargetData | null
-  parallax: ParallaxCoeffs
-  extras: TelemetryExtras
-  calStep: number
-  calMeasurements: CalMeasurement[]
-  armConfirm: boolean
+export interface BiteItem {
+  id: string
+  status: 'OK' | 'DEGRADED' | 'FAULT'
+  value: string
 }

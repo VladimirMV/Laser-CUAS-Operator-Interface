@@ -6,12 +6,12 @@ import { TargetPanel } from './components/TargetPanel'
 import { ControlPanel } from './components/ControlPanel'
 import { SafetyStrip } from './components/SafetyStrip'
 import { CalibrationWizard } from './components/CalibrationWizard'
+import { BiteScreen } from './components/BiteScreen'
 import { useHmiStore } from './store/useHmiStore'
 
 export default function App() {
   const { screen, target, tickCoast } = useHmiStore()
 
-  // Coasting countdown
   useEffect(() => {
     if (target?.trackState !== 'COAST') return
     const id = setInterval(() => tickCoast(), 1000)
@@ -27,7 +27,7 @@ export default function App() {
           <MainVideo />
         </div>
 
-        <div className="flex flex-col gap-3 w-52 shrink-0">
+        <div className="flex flex-col gap-3 w-56 shrink-0 overflow-y-auto">
           <PipWindows />
           <TargetPanel />
           <ControlPanel />
@@ -37,6 +37,7 @@ export default function App() {
       <SafetyStrip />
 
       {screen === 'CALIBRATION' && <CalibrationWizard />}
+      {screen === 'BITE' && <BiteScreen />}
     </div>
   )
 }
