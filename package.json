@@ -1,33 +1,30 @@
 {
   "name": "laser-cuas-operator-interface",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
+  "description": "Laser C-UAS Operator Console HMI — modernized with BITE, i18n EN/UA",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview",
-    "format": "oxfmt"
+    "preview": "vite preview"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^13.1.0",
-    "lucide-react": "^1.31.0",
+    "lucide-react": "^0.511.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.6.0",
-    "zustand": "^5.0.15"
+    "tailwind-merge": "^3.3.0",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
-    "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^6.0.0",
-    "oxfmt": "^0.2.0",
+    "@vitejs/plugin-react": "^4.4.0",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.9.3",
-    "vite": "^8.0.0"
-  },
-  "description": "Laser C-UAS Operator Console HMI — modernized from Figma Make"
+    "typescript": "^5.8.0",
+    "vite": "^6.3.0"
+  }
 }
