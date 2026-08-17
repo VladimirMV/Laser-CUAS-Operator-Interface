@@ -1,21 +1,24 @@
 import { AlertTriangle } from 'lucide-react'
 import { useHmiStore } from '../store/useHmiStore'
+import { useT } from '../i18n/useT'
 import { cn } from '../lib/utils'
 
 export function SafetyStrip() {
   const { laserStatus, target, calibrationStatus } = useHmiStore()
+  const { t } = useT()
 
   const messages: string[] = []
-  if (laserStatus === 'ARMED') messages.push('LASER ARMED — CONFIRM TARGET')
-  if (laserStatus === 'FIRING') messages.push('LASER FIRING')
-  if (target?.trackState === 'COAST') messages.push(`TRACK LOST — COASTING ${target.coastTimer}s`)
-  if (target?.trackState === 'LOST') messages.push('TRACK LOST — LASER INHIBITED')
-  if (calibrationStatus !== 'VALID') messages.push('CALIBRATION CHECK REQUIRED')
+  if (laserStatus === 'ARMED') messages.push(t('laserArmed'))
+  if (laserStatus === 'FIRING') messages.push(t('laserFiring'))
+  if (target?.trackState === 'COAST')
+    messages.push(`${t('trackLostCoasting')} ${target.coastTimer}s`)
+  if (target?.trackState === 'LOST') messages.push(t('trackLostInhibited'))
+  if (calibrationStatus !== 'VALID') messages.push(t('calCheckRequired'))
 
   if (messages.length === 0) {
     return (
       <div className="h-8 flex items-center px-4 bg-[#161B22] border-t border-[#30363D] text-[11px] font-mono text-[#3FB950] shrink-0">
-        SYSTEM READY
+        {t('systemReady')}
       </div>
     )
   }
@@ -35,7 +38,7 @@ export function SafetyStrip() {
       )}
     >
       <AlertTriangle size={14} />
-      {messages.join('  ·  ')}
+      {messages.join('  \u00b7  ')}
     </div>
   )
 }
