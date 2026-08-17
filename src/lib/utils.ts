@@ -6,7 +6,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-/** Δθ [mrad] = α + β/R  →  pixel offset using plate scale */
 export function computeParallaxOffset(
   range: number,
   coeffs: ParallaxCoeffs,
@@ -23,7 +22,6 @@ export function computeParallaxOffset(
   }
 }
 
-/** Simple linear regression y = a + c/R for calibration */
 export function fitParallax(measurements: { range: number; du: number; dv: number }[]) {
   const n = measurements.length
   if (n < 2) return null
